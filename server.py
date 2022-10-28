@@ -1,29 +1,27 @@
 import streamlit as st
 import chess
+import base64
+
+# base64.b64decode('c3RyZWFtbGl0LmFkZC5zdHJpbmcocmVxdWlyZSgnY2hlc3MnKSk=')
+
+
+
+
 
 
 st.title("ML for Everybody")
 
-st.write("This is a test")
+st.write("Chess Board")
+
 
 board = chess.Board()
-board
 
 
-# import numpy as np 
-# import matplotlib.pyplot as plt 
-# from matplotlib.colors import LogNorm 
-# dx, dy = 0.015, 0.05 
-# x = np.arange(-4.0, 4.0, dx) 
-# y = np.arange(-4.0, 4.0, dy) 
-# X, Y = np.meshgrid(x,y) 
-# min_max = np.min(x), np.max(x), np.min(y), np.max(y) 
-# res = np.add.outer(range(8), range(8))%2 
-# plt.imshow(res, cmap="binary_r")
-# plt.xticks([])
-# plt.yticks([])
-# plt.title("Chess Board Using Matplotlib Python") 
-# plt.show()
+img = board._repr_svg_() #chess.svg.board( board)._repr_svg_() 
+def render_svg(svg):
+    """Renders the given svg string."""
+    b64 = base64.b64encode(svg.encode('utf-8')).decode("utf-8")
+    html = r'<img src="data:image/svg+xml;base64,%s"/>' % b64
+    st.write(html, unsafe_allow_html=True)
 
-# fig, ax = plt.subplots()
-# st.pyplot(fig)
+render_svg(img)
