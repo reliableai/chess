@@ -18,3 +18,6 @@ plt.xticks([])
 plt.yticks([])
 plt.title("Chess Board Using Matplotlib Python") 
 plt.show()
+
+fig, ax = plt.subplots()
+st.pyplot(fig)
