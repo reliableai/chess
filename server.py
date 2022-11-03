@@ -7,6 +7,9 @@ from game import play_logic as pl
 # st.title("ML for Everybody")
 # st.write("Chess Board")
 
+#set page title
+st.set_page_config(page_title="Chess Board", page_icon="♟", layout="wide", initial_sidebar_state="auto")
+
 if 'board' not in st.session_state:
     st.session_state['board'] = chess.Board()
 
