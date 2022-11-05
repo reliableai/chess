@@ -49,6 +49,8 @@ def render_svg(svg, board_container):
 
 def handle_move(move):
     # st.session_state['board_container'] = st.empty()
+    #make move lowercase
+    move = move.lower()
     moves.append(move)
 
     # st.write('in handle move:' + str(moves) + value + str(st.session_state['refresh_counter']))
